@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
 
   description:
-    "Institutional-grade crypto market intelligence. Find Alpha Before The Crowd with real-time on-chain analytics, smart money tracking, and exclusive research.",
+    "Institutional Grade Market Intelligence built for serious investors, traders, and on-chain analysts.",
 
   keywords: [
     "crypto",
@@ -55,10 +55,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Screening Lab | Research Edge",
     description:
-      "Institutional-grade crypto market intelligence. Find Alpha Before The Crowd.",
+      "Institutional Grade Market Intelligence built for serious investors, traders, and on-chain analysts.",
 
     url: SITE_URL,
-    siteName: "The Screening Lab",
     locale: "en_US",
     type: "website",
 
@@ -76,17 +75,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "The Screening Lab | Research Edge",
     description:
-      "Institutional-grade crypto market intelligence. Find Alpha Before The Crowd.",
-    creator: "@TheScreeningLab",
+      "Institutional Grade Market Intelligence built for serious investors, traders, and on-chain analysts.",
     images: [`${SITE_URL}/og-image.png`],
   },
 
   icons: {
-    icon: [
-      {
-        url: "/favicon.ico",
-      },
-    ],
+    icon: "/favicon.ico",
     shortcut: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },
