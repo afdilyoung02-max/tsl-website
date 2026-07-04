@@ -137,13 +137,6 @@ export default function Pricing() {
 
       <div className="relative p-5">
 
-  <button
-    onClick={() => setOpen(false)}
-    className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-zinc-400 transition hover:bg-white/10 hover:text-white"
-  >
-    ✕
-  </button>
-
         <div className="flex justify-center">
           <div className="rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-2 text-xs font-semibold tracking-[0.25em] text-blue-300">
             LIFETIME VIP ACCESS
