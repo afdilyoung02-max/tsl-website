@@ -9,21 +9,57 @@ const inter = Inter({
 const SITE_URL = "https://tsl-website-rho.vercel.app";
 
 export const metadata: Metadata = {
-  title: "The Screening Lab | Research Edge",
-  description: "INTERNATIONAL GRADE MARKET INTELLIGENCE",
-
   metadataBase: new URL(SITE_URL),
 
-  keywords: ["crypto", "market intelligence", "alpha", "trading"],
+  title: {
+    default: "The Screening Lab | Research Edge",
+    template: "%s | The Screening Lab",
+  },
 
-  authors: [{ name: "The Screening Lab" }],
+  description:
+    "Institutional-grade crypto market intelligence. Find Alpha Before The Crowd with real-time on-chain analytics, smart money tracking, and exclusive research.",
+
+  keywords: [
+    "crypto",
+    "cryptocurrency",
+    "bitcoin",
+    "ethereum",
+    "market intelligence",
+    "research",
+    "alpha",
+    "smart money",
+    "on-chain analytics",
+    "trading",
+    "web3",
+    "investment",
+  ],
+
+  authors: [
+    {
+      name: "The Screening Lab",
+    },
+  ],
+
   creator: "The Screening Lab",
+  publisher: "The Screening Lab",
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  alternates: {
+    canonical: SITE_URL,
+  },
 
   openGraph: {
-    title: "The Screening Lab",
-    description: "Find Alpha Before The Crowd",
+    title: "The Screening Lab | Research Edge",
+    description:
+      "Institutional-grade crypto market intelligence. Find Alpha Before The Crowd.",
+
     url: SITE_URL,
     siteName: "The Screening Lab",
+    locale: "en_US",
     type: "website",
 
     images: [
@@ -31,28 +67,36 @@ export const metadata: Metadata = {
         url: `${SITE_URL}/og-image.png`,
         width: 1200,
         height: 630,
-        alt: "The Screening Lab - Market Intelligence",
+        alt: "The Screening Lab | Research Edge",
       },
     ],
   },
 
   twitter: {
     card: "summary_large_image",
-    title: "The Screening Lab",
-    description: "Find Alpha Before The Crowd",
+    title: "The Screening Lab | Research Edge",
+    description:
+      "Institutional-grade crypto market intelligence. Find Alpha Before The Crowd.",
+    creator: "@TheScreeningLab",
     images: [`${SITE_URL}/og-image.png`],
   },
 
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      {
+        url: "/favicon.ico",
+      },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en">
       <body className={inter.className}>{children}</body>
