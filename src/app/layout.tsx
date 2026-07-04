@@ -9,7 +9,7 @@ const inter = Inter({
 const SITE_URL = "https://tsl-website-rho.vercel.app";
 
 export const metadata: Metadata = {
-  title: "The Screening Lab | Find Alpha Before The Crowd",
+  title: "The Screening Lab | Research Edge",
   description: "INTERNATIONAL GRADE MARKET INTELLIGENCE",
 
   metadataBase: new URL(SITE_URL),
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 
     images: [
       {
-        url: `${SITE_URL}/og-image.jpg`,
+        url: `${SITE_URL}/og-image.png`,
         width: 1200,
         height: 630,
         alt: "The Screening Lab - Market Intelligence",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "The Screening Lab",
     description: "Find Alpha Before The Crowd",
-    images: [`${SITE_URL}/og-image.jpg`],
+    images: [`${SITE_URL}/og-image.png`],
   },
 
   icons: {
