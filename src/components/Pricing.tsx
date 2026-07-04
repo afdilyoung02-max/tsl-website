@@ -110,7 +110,7 @@ export default function Pricing() {
 
       {open && (
   <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-6">
-    <div className="relative w-full max-w-sm overflow-hidden rounded-3xl border border-white/10 bg-[#0A0F1C]/95 shadow-[0_0_80px_rgba(29,78,255,0.25)]">
+    <div className="relative w-full max-w-[340px] overflow-hidden rounded-2xl border border-white/10 bg-[#0A0F1C]/95 shadow-[0_0_60px_rgba(29,78,255,0.2)]">
 
       {/* Glow */}
       <div className="absolute -top-32 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-blue-500/20 blur-[120px]" />
