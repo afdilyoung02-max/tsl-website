@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Check } from "lucide-react";
 
 const BCA_ACCOUNT = "6300407216";
@@ -25,6 +25,20 @@ export default function Pricing() {
   const [clicked, setClicked] = useState(false);
   const [open, setOpen] = useState(false);
 
+  useEffect(() => {
+  const handleKeyDown = (e: KeyboardEvent) => {
+    if (e.key === "Escape") {
+      setOpen(false);
+    }
+  };
+
+  window.addEventListener("keydown", handleKeyDown);
+
+  return () => {
+    window.removeEventListener("keydown", handleKeyDown);
+  };
+}, []);
+
   const handlePayment = () => {
     if (!username.trim()) {
       alert("Masukkan Discord Username terlebih dahulu.");
@@ -45,7 +59,7 @@ export default function Pricing() {
 
         <div className="grid gap-10 lg:grid-cols-[1.3fr_0.7fr]">
           <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-10 backdrop-blur-xl">
-            <h3 className="text-xl font-semibold text-white">What You Get</h3>
+            <h3 className="text-xl font-semibold text-white">What You Get?</h3>
             <div className="mt-8 grid gap-5 sm:grid-cols-2">
               {benefits.map((item) => (
                 <div key={item} className="flex items-center gap-3">
@@ -60,7 +74,7 @@ export default function Pricing() {
 
           <div className="relative">
             <div className="absolute -inset-10 -z-10 rounded-3xl bg-blue-500/10 blur-[120px]" />
-            <div className="rounded-3xl border border-blue-500/15 bg-gradient-to-b from-white/[0.06] to-white/[0.02] p-10 backdrop-blur-xl">
+            <div className="rounded-3xl border border-blue-500/15 bg-gradient-to-b from-white/[0.06] to-white/[0.02] p-4 backdrop-blur-xl">
               <div className="mx-auto w-fit rounded-full bg-blue-500/10 px-4 py-2 text-xs font-semibold tracking-[0.3em] text-blue-400">LIFETIME</div>
               <p className="mt-8 text-center text-sm text-zinc-500 line-through">Rp 4.999.000</p>
               <h3 className="mt-2 text-center text-4xl font-bold text-white">Rp 2.999.000</h3>
@@ -109,13 +123,26 @@ export default function Pricing() {
       </div>
 
       {open && (
-  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-6">
-    <div className="relative w-full max-w-[340px] overflow-hidden rounded-2xl border border-white/10 bg-[#0A0F1C]/95 shadow-[0_0_60px_rgba(29,78,255,0.2)]">
+  <div
+  className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-5"
+  onClick={() => setOpen(false)}
+>
+    <div
+  className="relative w-full max-w-[340px] rounded-2xl border border-white/10 bg-[#0A0F1C]/95 shadow-[0_0_50px_rgba(29,78,255,0.18)]"
+  onClick={(e) => e.stopPropagation()}
+>
 
       {/* Glow */}
       <div className="absolute -top-32 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-blue-500/20 blur-[120px]" />
 
-      <div className="relative p-6">
+      <div className="relative p-5">
+
+  <button
+    onClick={() => setOpen(false)}
+    className="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-white/5 text-zinc-400 transition hover:bg-white/10 hover:text-white"
+  >
+    ✕
+  </button>
 
         <div className="flex justify-center">
           <div className="rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-2 text-xs font-semibold tracking-[0.25em] text-blue-300">
@@ -135,11 +162,11 @@ export default function Pricing() {
   Rp 2.999.000
 </p>
 
-        <div className="my-8 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
+        <div className="my-4 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
 
         {/* BANK CARD */}
 
-        <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-6">
+        <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/10 to-white/5 p-5">
 
           <div className="flex items-center justify-between">
 
@@ -165,9 +192,9 @@ export default function Pricing() {
               Account Number
             </p>
 
-            <div className="mt-2 flex items-center justify-between rounded-2xl bg-black/20 p-4">
+            <div className="mt-2 flex items-center justify-between rounded-xl bg-black/20 p-3">
 
-              <span className="text-2xl font-bold tracking-[0.15em]">
+              <span className="text-lg font-bold tracking-wider">
                 {BCA_ACCOUNT}
               </span>
 
@@ -216,17 +243,11 @@ Berikut bukti transfer saya:`
               "_blank"
             )
           }
-          className="mt-8 w-full rounded-2xl bg-gradient-to-r from-green-500 to-green-600 py-5 text-lg font-bold transition hover:scale-[1.02]"
+          className="mt-5 w-full rounded-xl bg-gradient-to-r from-green-500 to-green-600 py-4 text-base font-bold transition hover:scale-[1.02]"
         >
           Verify Payment via WhatsApp
         </button>
 
-        <button
-          onClick={() => setOpen(false)}
-          className="mt-4 w-full rounded-2xl border border-white/10 py-4 text-zinc-400 transition hover:bg-white/5"
-        >
-          Cancel
-        </button>
 
       </div>
     </div>
